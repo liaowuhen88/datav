@@ -29,7 +29,7 @@ public class StatisticsServiceImpl implements StatisticsService {
     String groupPremium = "SELECT sum(p.money) from enterprisecontract p ;";
 
 
-    String groupPersonalNum =  " SELECT sum(p.mianpnum) from enterprisecontract p ;";
+    String groupPersonalNum = " SELECT sum(p.mianpnum) from enterprisecontract p ;";
 
     String cardPremium = "SELECT sum(kc_money) from ku_card_user;";
 
@@ -79,9 +79,14 @@ public class StatisticsServiceImpl implements StatisticsService {
             "   pc.id " +
             " ) w";
 
-      String settlementCount = "SELECT count(1) from userclaimsapply u";
+    String settlementCount = "SELECT count(1) from userclaimsapply u";
 
-    String automobile = " select count(id) from broker_data";
+    //投保
+    String automobileInsure = " select count(id) from broker_data ";
+
+    // 用户
+    String automobileUser = " select count(id) from broker_data where import_type = '01-天道'";
+
 
     String automobilePremium = "select sum(premium) from broker_data";
 
@@ -89,73 +94,79 @@ public class StatisticsServiceImpl implements StatisticsService {
 
     @Override
     public Long groupAndPersonalCount() {
-        Long lo = jdbcTemplate.queryForObject(groupAndPersonalCount,Long.class);
-        return null == lo?0:lo;
+        Long lo = jdbcTemplate.queryForObject(groupAndPersonalCount, Long.class);
+        return null == lo ? 0 : lo;
     }
 
     @Override
     public Long selectPersonnu() {
-        Long lo = jdbcTemplate.queryForObject(selectPersonnu,Long.class);
-        return null == lo?0:lo;
+        Long lo = jdbcTemplate.queryForObject(selectPersonnu, Long.class);
+        return null == lo ? 0 : lo;
     }
 
     @Override
-    public Long automobile() {
-        Long lo = jdbcTemplate.queryForObject(automobile,Long.class);
-        return null == lo?0:lo;
+    public Long automobileUser() {
+        Long lo = jdbcTemplate.queryForObject(automobileUser, Long.class);
+        return null == lo ? 0 : lo;
+    }
+
+    @Override
+    public Long automobileInsure() {
+        Long lo = jdbcTemplate.queryForObject(automobileInsure, Long.class);
+        return null == lo ? 0 : lo;
     }
 
     @Override
     public Long enterpriseUserCount() {
-        Long lo = jdbcTemplate.queryForObject(enterpriseUserCount,Long.class);
-        return null == lo?0:lo;
+        Long lo = jdbcTemplate.queryForObject(enterpriseUserCount, Long.class);
+        return null == lo ? 0 : lo;
     }
 
     @Override
     public String personalPremium() {
-        String lo = jdbcTemplate.queryForObject(personalPremium,String.class);
+        String lo = jdbcTemplate.queryForObject(personalPremium, String.class);
         return lo;
     }
 
     @Override
     public String groupPremium() {
-        String lo = jdbcTemplate.queryForObject(groupPremium,String.class);
+        String lo = jdbcTemplate.queryForObject(groupPremium, String.class);
         return lo;
     }
 
     @Override
     public String automobilePremium() {
-        String auto = jdbcTemplate.queryForObject(automobilePremium,String.class);
+        String auto = jdbcTemplate.queryForObject(automobilePremium, String.class);
         return MathUtils.getDivide(auto);
     }
 
     @Override
     public String cardPremium() {
-        String lo = jdbcTemplate.queryForObject(cardPremium,String.class);
+        String lo = jdbcTemplate.queryForObject(cardPremium, String.class);
         return lo;
     }
 
     @Override
     public Long settlementCount() {
-        Long lo = jdbcTemplate.queryForObject(settlementCount,Long.class);
-        return null == lo?0:lo;
+        Long lo = jdbcTemplate.queryForObject(settlementCount, Long.class);
+        return null == lo ? 0 : lo;
     }
 
     @Override
     public Long groupPersonalNum() {
-        Long lo =jdbcTemplate.queryForObject(groupPersonalNum,Long.class);
-        return null == lo?0:lo;
+        Long lo = jdbcTemplate.queryForObject(groupPersonalNum, Long.class);
+        return null == lo ? 0 : lo;
     }
 
     @Override
     public Long personalNum() {
-        Long lo = jdbcTemplate.queryForObject(personalNum,Long.class);
-        return null == lo?0:lo;
+        Long lo = jdbcTemplate.queryForObject(personalNum, Long.class);
+        return null == lo ? 0 : lo;
     }
 
     @Override
     public Long cardNum() {
-        Long lo = jdbcTemplate.queryForObject(cardNum,Long.class);
-        return null == lo?0:lo;
+        Long lo = jdbcTemplate.queryForObject(cardNum, Long.class);
+        return null == lo ? 0 : lo;
     }
 }

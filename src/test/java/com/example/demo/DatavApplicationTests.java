@@ -25,7 +25,7 @@ public class DatavApplicationTests {
 
 		Long groupAndPersonal = statisticsService.groupAndPersonalCount();
 		Long personnu = statisticsService.selectPersonnu();
-		Long automobile = statisticsService.automobile();
+		Long automobile = statisticsService.automobileUser();
 
 		logger.info("系统中（团险+个险）人数:[{}] -----系统中无人员信息保单人数:[{}]----车险合同数:[{}]",groupAndPersonal,personnu,automobile);
 
@@ -83,7 +83,7 @@ public class DatavApplicationTests {
 		Long groupPersonalNum = statisticsService.groupPersonalNum();
 		Long personalNum = statisticsService.personalNum();
 		Long cardNum = statisticsService.cardNum();
-		Long automobile = statisticsService.automobile();
+		Long automobile = statisticsService.automobileInsure();
 
 		logger.info("系统中团单载明人数合计:[{}]----个单:[{}]---卡单:[{}]----车险合同数:[{}]",groupPersonalNum,personalNum,cardNum,automobile);
 

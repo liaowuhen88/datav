@@ -36,7 +36,7 @@ public class DataVController {
     {
         Long groupAndPersonal = statisticsService.groupAndPersonalCount();
         Long personnu = statisticsService.selectPersonnu();
-        Long automobile = statisticsService.automobile();
+        Long automobile = statisticsService.automobileUser();
 
         Long total = groupAndPersonal+personnu+automobile;
 
@@ -93,7 +93,7 @@ public class DataVController {
         Long groupPersonalNum = statisticsService.groupPersonalNum();
         Long personalNum = statisticsService.personalNum();
         Long cardNum = statisticsService.cardNum();
-        Long automobile = statisticsService.automobile();
+        Long automobile = statisticsService.automobileInsure();
         Long total = groupPersonalNum+personalNum+cardNum+automobile;
 
         logger.info("系统中团单载明人数合计:[{}]----个单:[{}]---卡单:[{}]----车险合同数:[{}]",groupPersonalNum,personalNum,cardNum,automobile);

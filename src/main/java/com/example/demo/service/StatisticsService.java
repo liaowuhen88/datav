@@ -18,10 +18,14 @@ public interface StatisticsService {
     Long selectPersonnu();
 
     /**
-     * 车险合同数
+     * 车险合同用户
      */
-    Long automobile();
+    Long automobileUser();
 
+    /**
+     * 车险合同用户
+     */
+    Long automobileInsure();
 
     /**
      * 系统中企业用户数量
